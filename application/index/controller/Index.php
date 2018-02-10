@@ -8,6 +8,10 @@ class Index
     {
         return view('index');
     }
+    public function welcome()
+    {
+        return view('welcome');
+    }
     public function tel(){
         $tel=$_GET['tel'];
         $cmd="adb shell am start -a android.intent.action.CALL tel:$tel

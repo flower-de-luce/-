@@ -23,11 +23,19 @@ class Login extends Controller
             }
             //验证账号
             //todo::验证账号
+            session_start();
+            session(['login_info'=>array('name'=>input('post.name'),'password'=>input('post.password'),'login_time'=>time())]);
             //渲染主页
-            return view('index',array());
+           $this->success('登录成功',url('/index/index/index'),'',1);
         }else{
            return  view('login');
         }
+    }
+
+    public function logout(){
+      session('login_info',null);
+        $this->success('退出成功','index/login/index','',3);
+
     }
 }
 
