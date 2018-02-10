@@ -1,11 +1,15 @@
 <?php
 namespace app\index\controller;
+use \think\Session;
 
 class Index
 
 {
     public function index()
     {
+        //检查登录状态
+
+        if(empty(Session::get('login_info')))  return redirect(url('index/login/index'));
         return view('index');
     }
     public function welcome()

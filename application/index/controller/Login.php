@@ -24,7 +24,7 @@ class Login extends Controller
             //验证账号
             //todo::验证账号
             session_start();
-            session(['login_info'=>array('name'=>input('post.name'),'password'=>input('post.password'),'login_time'=>time())]);
+            session('login_info',array('name'=>input('post.name'),'password'=>input('post.password'),'login_time'=>time()));
             //渲染主页
            $this->success('登录成功',url('/index/index/index'),'',1);
         }else{
@@ -33,7 +33,7 @@ class Login extends Controller
     }
 
     public function logout(){
-      session('login_info',null);
+     session('login_info',NULL);
         $this->success('退出成功','index/login/index','',3);
 
     }
