@@ -1,16 +1,23 @@
 <?php
 namespace app\index\controller;
-class Login
+use think\Controller;
+use think\Validate;
+
+class Login extends Controller
 {
     public function index()
     {
-        if(input()){
-
-
+        if(input('post.')){
+            $validate = new Validate([
+                'name'  => 'require|max:20|min:5',
+                'password' => 'require|min:6|max:18'
+            ]);
+            if (!$validate->check(input('post.'))) {
+                dump($validate->getError());
+            }
         }else{
-            view('login');
+           return  view('login');
         }
-
     }
 }
 
