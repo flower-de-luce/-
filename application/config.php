@@ -236,4 +236,9 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    'view_replace_str'       => [
+        '__PUBLIC__'=>'/public',
+        '__ROOT__' => $_SERVER['DOCUMENT_ROOT'],
+        '__STATIC__'=>'/static'
+    ],
 ];
